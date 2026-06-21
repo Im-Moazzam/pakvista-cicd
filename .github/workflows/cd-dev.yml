@@ -1,0 +1,20 @@
+name: cd-dev
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  cd-dev:
+    runs-on: ubuntu-latest
+    environment: deployment
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy
+        run: curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_DEV_URL }}"
+
+      - name: Confirm
+        run: echo "Deployment to development triggered at $(date)"

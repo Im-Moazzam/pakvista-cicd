@@ -1,0 +1,20 @@
+name: cd-prod
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  cd-prod:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy
+        run: curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_PROD_URL }}"
+
+      - name: Confirm
+        run: echo "Deployment to production triggered at $(date)"
