@@ -31,7 +31,9 @@ header {
   text-align: center;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: var(--color-secondary);
   font-weight: 700;
 }
@@ -87,7 +89,7 @@ main {
   transition: var(--transition);
 }
 
-.nav-bar a:hover, 
+.nav-bar a:hover,
 .nav-bar a.active {
   color: white;
   background-color: rgb(255 255 255 / 10%);
@@ -173,7 +175,8 @@ table {
   border: 1px solid var(--color-border);
 }
 
-th, td {
+th,
+td {
   border: none;
   border-bottom: 1px solid var(--color-border);
   padding: 1rem;
@@ -207,13 +210,13 @@ footer {
 }
 
 /* Media Queries for Viewports */
-@media (width <= 700px) {
+@media (width <=700px) {
   .nav-bar ul {
     flex-direction: column;
     align-items: stretch;
     gap: 0;
   }
-  
+
   .nav-bar a {
     text-align: center;
     padding: 0.75rem;
@@ -224,12 +227,267 @@ footer {
     border-bottom: 1px solid var(--color-border);
     border-left: 4px solid var(--color-border);
   }
-  
+
   section {
     padding: 1.25rem;
   }
-  
+
   td:first-child {
     width: auto;
   }
+}
+
+/* Lahore Page Styles - scoped so the shared stylesheet stays untouched elsewhere */
+.lahore-page {
+  font-family: Outfit, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #fffaf3 0%, #f8fafc 36%, #eef6fb 100%);
+}
+
+.lahore-page header {
+  background: linear-gradient(135deg, #7c2d12, #b45309);
+}
+
+.lahore-page header h1,
+.lahore-page header p {
+  color: #fff;
+}
+
+.lahore-page main {
+  width: min(1100px, 92%);
+}
+
+.lahore-page section {
+  background: rgb(255 255 255 / 92%);
+  backdrop-filter: blur(8px);
+}
+
+.lahore-page .lahore-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 2rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #1f2937, #7c2d12 55%, #b45309);
+  color: #fff;
+  box-shadow: 0 18px 40px rgb(0 0 0 / 12%);
+}
+
+.lahore-page .lahore-hero::before,
+.lahore-page .lahore-hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.lahore-page .lahore-hero::before {
+  top: -25%;
+  right: -10%;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgb(255 255 255 / 16%), transparent 70%);
+}
+
+.lahore-page .lahore-hero::after {
+  bottom: -35%;
+  left: -8%;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgb(245 158 11 / 20%), transparent 70%);
+}
+
+.lahore-page .lahore-hero-badge {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 14%);
+  border: 1px solid rgb(255 255 255 / 20%);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lahore-page .lahore-hero h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 0.75rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.1;
+  color: #fff;
+}
+
+.lahore-page .lahore-hero p {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0;
+  font-size: 1.05rem;
+  color: rgb(255 255 255 / 86%);
+}
+
+.lahore-page .lahore-intro-panel,
+.lahore-page .lahore-gallery-grid,
+.lahore-page #lahore-attractions {
+  margin-top: 2rem;
+}
+
+.lahore-page .lahore-section-title {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.lahore-page .lahore-section-title h2 {
+  margin: 0 0 0.4rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--color-secondary);
+}
+
+.lahore-page .lahore-section-title p {
+  max-width: 620px;
+  margin: 0.5rem auto 0;
+  color: #64748b;
+}
+
+.lahore-page .lahore-divider {
+  display: inline-block;
+  width: 64px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7c2d12, #b45309, #f59e0b);
+}
+
+.lahore-page .lahore-intro-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.lahore-page .lahore-intro-grid p {
+  margin-top: 0;
+  color: #475569;
+}
+
+.lahore-page .lahore-info-box {
+  padding: 1.4rem;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, #fff7ed, #fff);
+  border: 1px solid #fed7aa;
+  box-shadow: var(--shadow);
+}
+
+.lahore-page .lahore-info-box h3 {
+  margin-top: 0;
+  color: #7c2d12;
+}
+
+.lahore-page .lahore-info-box ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: #475569;
+}
+
+.lahore-page .lahore-attractions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.lahore-page .lahore-card {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.lahore-page .lahore-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 28px rgb(0 0 0 / 12%);
+}
+
+.lahore-page .lahore-card-head {
+  min-height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Lahore attraction visuals use direct Wikimedia upload links. */
+.lahore-page .lahore-badshahi {
+  background-image: linear-gradient(135deg, rgb(31 41 55 / 38%), rgb(124 45 18 / 18%)),
+    url('https://upload.wikimedia.org/wikipedia/commons/1/1e/Badshahi_Mosque_Lahore%2C_Pakistan_1.jpg');
+}
+
+.lahore-page .lahore-fort {
+  background-image: linear-gradient(135deg, rgb(31 41 55 / 38%), rgb(180 83 9 / 18%)),
+    url('https://upload.wikimedia.org/wikipedia/commons/1/18/Lahore_Fort_from_distance.jpg');
+}
+
+.lahore-page .lahore-shalimar {
+  background-image: linear-gradient(135deg, rgb(31 41 55 / 38%), rgb(15 118 110 / 18%)),
+    url('https://upload.wikimedia.org/wikipedia/commons/5/56/Shalimar_garden_lahore.jpg');
+}
+
+.lahore-page .lahore-card-body {
+  padding: 1.25rem 1.35rem 1.4rem;
+}
+
+.lahore-page .lahore-card-tag {
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: #fff7ed;
+  color: #9a3412;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lahore-page .lahore-card-body h3 {
+  margin: 0 0 0.5rem;
+  color: var(--color-secondary);
+}
+
+.lahore-page .lahore-card-body p {
+  margin: 0 0 0.75rem;
+  color: #64748b;
+}
+
+.lahore-page .lahore-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.lahore-page .lahore-gallery-item {
+  margin: 0;
+}
+
+.lahore-page .lahore-gallery-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-sm);
+  border: 1px solid #fed7aa;
+  box-shadow: var(--shadow);
+}
+
+.lahore-page .lahore-gallery-item figcaption {
+  color: #64748b;
+  margin-top: 0.65rem;
+}
+
+/* Keep the shared placeholder look available for other pages without using it here. */
+.lahore-page .img-placeholder {
+  min-height: 220px;
+  border-color: #fed7aa;
+  background: linear-gradient(135deg, #fff7ed, #e2e8f0);
+  color: #7c2d12;
 }
