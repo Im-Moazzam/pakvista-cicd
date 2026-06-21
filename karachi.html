@@ -1,11 +1,917 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover Karachi — Pakistan's City of Lights. Explore its beaches, food, culture, and vibrant nightlife on PakVista.">
+  <title>PakVista | Karachi – City of Lights</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+  <style>
+    /* ===================================================
+       KARACHI PAGE — SCOPED STYLES
+       All rules are scoped under .karachi-page so they
+       won't bleed into other pages.
+       =================================================== */
+
+    .karachi-page {
+      --khi-accent: #0ea5e9;
+      --khi-accent-dark: #0284c7;
+      --khi-gold: #f59e0b;
+      --khi-gold-dark: #d97706;
+      --khi-gradient-start: #0f172a;
+      --khi-gradient-end: #1e3a5f;
+      --khi-glass: rgba(255, 255, 255, 0.08);
+      --khi-glass-border: rgba(255, 255, 255, 0.15);
+      --khi-text-muted: #94a3b8;
+      --khi-radius: 16px;
+      font-family: 'Outfit', Arial, Helvetica, sans-serif;
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    .karachi-page .khi-hero {
+      position: relative;
+      width: 100%;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      border-radius: 0 0 var(--khi-radius) var(--khi-radius);
+    }
+
+    .karachi-page .khi-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.45) saturate(1.2);
+      transition: transform 8s ease;
+    }
+
+    .karachi-page .khi-hero:hover .khi-hero-img {
+      transform: scale(1.06);
+    }
+
+    .karachi-page .khi-hero-overlay {
+      position: relative;
+      z-index: 2;
+      padding: 3rem 1.5rem;
+      animation: khiFadeUp 1s ease-out;
+    }
+
+    .karachi-page .khi-hero-badge {
+      display: inline-block;
+      background: var(--khi-gold);
+      color: #1e293b;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .karachi-page .khi-hero h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      color: #fff;
+      margin: 0 0 0.5rem;
+      line-height: 1.1;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .karachi-page .khi-hero h2 em {
+      color: var(--khi-gold);
+      font-style: normal;
+    }
+
+    .karachi-page .khi-hero-sub {
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      font-weight: 300;
+    }
+
+    .karachi-page .khi-hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .karachi-page .khi-stat {
+      text-align: center;
+    }
+
+    .karachi-page .khi-stat-num {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--khi-accent);
+    }
+
+    .karachi-page .khi-stat-label {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ---------- SECTION TITLES ---------- */
+    .karachi-page .khi-section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .karachi-page .khi-section-title h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2rem;
+      color: var(--color-secondary);
+      margin: 0 0 0.3rem;
+    }
+
+    .karachi-page .khi-section-title .khi-divider {
+      display: inline-block;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--khi-accent), var(--khi-gold));
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    .karachi-page .khi-section-title p {
+      color: var(--khi-text-muted);
+      font-size: 1rem;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    /* ---------- INTRO ---------- */
+    .karachi-page .khi-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .karachi-page .khi-intro-text h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.6rem;
+      color: var(--color-secondary);
+      margin-top: 0;
+    }
+
+    .karachi-page .khi-intro-text p {
+      color: #475569;
+      line-height: 1.8;
+    }
+
+    .karachi-page .khi-intro-img {
+      width: 100%;
+      border-radius: var(--khi-radius);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .karachi-page .khi-intro-img:hover {
+      transform: translateY(-6px) rotate(-1deg);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ---------- ATTRACTIONS GRID ---------- */
+    .karachi-page .khi-attractions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .karachi-page .khi-attraction-card {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--khi-radius);
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: default;
+    }
+
+    .karachi-page .khi-attraction-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(14, 165, 233, 0.15);
+    }
+
+    .karachi-page .khi-card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .karachi-page .khi-attraction-card:hover .khi-card-img {
+      transform: scale(1.08);
+    }
+
+    .karachi-page .khi-card-img-wrap {
+      overflow: hidden;
+    }
+
+    .karachi-page .khi-card-body {
+      padding: 1.2rem 1.4rem;
+    }
+
+    .karachi-page .khi-card-body h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      color: var(--color-secondary);
+      margin: 0 0 0.4rem;
+    }
+
+    .karachi-page .khi-card-body p {
+      font-size: 0.92rem;
+      color: #64748b;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .karachi-page .khi-card-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--khi-accent), #06b6d4);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ---------- FOOD SECTION ---------- */
+    .karachi-page .khi-food-section {
+      background: linear-gradient(135deg, var(--khi-gradient-start), var(--khi-gradient-end));
+      border-radius: var(--khi-radius);
+      padding: 3rem 2rem;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      border: none;
+    }
+
+    .karachi-page .khi-food-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.15), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .karachi-page .khi-food-section .khi-section-title h2 {
+      color: #fff;
+    }
+
+    .karachi-page .khi-food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .karachi-page .khi-food-card {
+      background: var(--khi-glass);
+      border: 1px solid var(--khi-glass-border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .karachi-page .khi-food-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .karachi-page .khi-food-emoji {
+      font-size: 2.8rem;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .karachi-page .khi-food-card h4 {
+      font-size: 1rem;
+      margin: 0 0 0.3rem;
+      color: #fff;
+    }
+
+    .karachi-page .khi-food-card p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.65);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ---------- TIMELINE ---------- */
+    .karachi-page .khi-timeline {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+
+    .karachi-page .khi-timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--khi-accent), var(--khi-gold));
+      border-radius: 3px;
+    }
+
+    .karachi-page .khi-timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 1rem;
+      animation: khiFadeUp 0.6s ease-out both;
+    }
+
+    .karachi-page .khi-timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.15rem;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      background: var(--khi-accent);
+      border: 3px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--khi-accent);
+    }
+
+    .karachi-page .khi-timeline-year {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, var(--khi-accent), var(--khi-gold));
+      padding: 0.2rem 0.7rem;
+      border-radius: 50px;
+      margin-bottom: 0.4rem;
+    }
+
+    .karachi-page .khi-timeline-item h4 {
+      margin: 0.3rem 0 0.2rem;
+      font-size: 1.05rem;
+      color: var(--color-secondary);
+    }
+
+    .karachi-page .khi-timeline-item p {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ---------- FACTS TABLE ---------- */
+    .karachi-page .khi-facts-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--khi-radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .karachi-page .khi-facts-table thead th {
+      background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+      color: #fff;
+      padding: 1rem 1.2rem;
+      font-weight: 600;
+      text-align: left;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: none;
+    }
+
+    .karachi-page .khi-facts-table td {
+      padding: 0.85rem 1.2rem;
+      font-size: 0.92rem;
+      border: none;
+      border-bottom: 1px solid #e2e8f0;
+      transition: background 0.2s ease;
+    }
+
+    .karachi-page .khi-facts-table tbody tr:hover td {
+      background: #f1f5f9;
+    }
+
+    .karachi-page .khi-facts-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .karachi-page .khi-fact-icon {
+      font-size: 1.3rem;
+      margin-right: 0.5rem;
+    }
+
+    /* ---------- GALLERY ---------- */
+    .karachi-page .khi-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .karachi-page .khi-gallery-item {
+      position: relative;
+      border-radius: var(--khi-radius);
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 16 / 10;
+    }
+
+    .karachi-page .khi-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease, filter 0.4s ease;
+    }
+
+    .karachi-page .khi-gallery-item:hover img {
+      transform: scale(1.1);
+      filter: brightness(0.7);
+    }
+
+    .karachi-page .khi-gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem 1.2rem;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+      color: #fff;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+
+    .karachi-page .khi-gallery-item:hover .khi-gallery-caption {
+      transform: translateY(0);
+    }
+
+    /* ---------- CTA BANNER ---------- */
+    .karachi-page .khi-cta {
+      background: linear-gradient(135deg, var(--khi-accent), #0369a1);
+      border-radius: var(--khi-radius);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      border: none;
+    }
+
+    .karachi-page .khi-cta::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .karachi-page .khi-cta::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      right: -10%;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.2), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .karachi-page .khi-cta h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2rem;
+      color: #fff;
+      margin: 0 0 0.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .karachi-page .khi-cta p {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ---------- SCROLL ANIMATIONS ---------- */
+    .karachi-page .khi-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .karachi-page .khi-reveal.khi-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes khiFadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes khiPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4); }
+      50%      { box-shadow: 0 0 0 12px rgba(14, 165, 233, 0); }
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .karachi-page .khi-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .karachi-page .khi-hero {
+        min-height: 400px;
+      }
+
+      .karachi-page .khi-hero-stats {
+        gap: 1.5rem;
+      }
+
+      .karachi-page .khi-food-section {
+        padding: 2rem 1.2rem;
+      }
+
+      .karachi-page .khi-gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-<body>
-    
+<body class="karachi-page">
+  <header>
+    <h1>PakVista</h1>
+    <p>Discover Pakistan's most beautiful tourist destinations.</p>
+  </header>
+
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lahore.html">Lahore</a></li>
+      <li><a href="hunza.html">Hunza</a></li>
+      <li><a href="karachi.html">Karachi</a></li>
+      <li><a href="swat.html">Swat</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="khi-hero" id="khi-hero">
+      <img src="images/karachi-hero.png" alt="Panoramic view of Karachi skyline at golden hour" class="khi-hero-img">
+      <div class="khi-hero-overlay">
+        <span class="khi-hero-badge">🌆 City of Lights</span>
+        <h2>Welcome to <em>Karachi</em></h2>
+        <p class="khi-hero-sub">
+          Pakistan's largest city pulses with energy — from the Arabian Sea coastline to its dazzling skyline, Karachi is where history, culture, and ambition collide.
+        </p>
+        <div class="khi-hero-stats">
+          <div class="khi-stat">
+            <span class="khi-stat-num" id="khi-pop">16M+</span>
+            <span class="khi-stat-label">Population</span>
+          </div>
+          <div class="khi-stat">
+            <span class="khi-stat-num">1729</span>
+            <span class="khi-stat-label">Founded</span>
+          </div>
+          <div class="khi-stat">
+            <span class="khi-stat-num">3,780 km²</span>
+            <span class="khi-stat-label">Area</span>
+          </div>
+          <div class="khi-stat">
+            <span class="khi-stat-num">#1</span>
+            <span class="khi-stat-label">Busiest Port</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== INTRO ===== -->
+    <section class="khi-reveal" id="khi-intro">
+      <div class="khi-intro">
+        <div class="khi-intro-text">
+          <h3>The Heartbeat of Pakistan</h3>
+          <p>
+            Karachi isn't just a city — it's a universe. Home to over 16 million people speaking dozens of languages,
+            this sprawling metropolis on the Arabian Sea is Pakistan's economic engine, cultural melting pot, and
+            the gateway to the world. From the neon-lit streets of Saddar to the serene shores of Sandspit Beach,
+            Karachi defies a single identity.
+          </p>
+          <p>
+            Once a small fishing village called <strong>Kolachi</strong>, this city has transformed into one of the
+            world's fastest-growing megacities. Its port handles 95% of Pakistan's foreign trade, its stock exchange
+            drives the national economy, and its food — oh, the food — is the stuff of legend.
+          </p>
+        </div>
+        <img src="images/karachi-clifton.png" alt="Clifton Beach at sunset with camels" class="khi-intro-img">
+      </div>
+    </section>
+
+    <!-- ===== TOP ATTRACTIONS ===== -->
+    <section class="khi-reveal" id="khi-attractions">
+      <div class="khi-section-title">
+        <span class="khi-divider"></span>
+        <h2>Iconic Attractions</h2>
+        <p>From grand mausoleums to moonlit beaches — Karachi has it all.</p>
+      </div>
+
+      <div class="khi-attractions-grid">
+        <article class="khi-attraction-card" id="card-mazar">
+          <div class="khi-card-img-wrap">
+            <img src="images/karachi-mohatta.png" alt="Mazar-e-Quaid mausoleum" class="khi-card-img">
+          </div>
+          <div class="khi-card-body">
+            <span class="khi-card-tag">🏛️ Heritage</span>
+            <h3>Mazar-e-Quaid</h3>
+            <p>The white marble tomb of Muhammad Ali Jinnah, founder of Pakistan. A symbol of national pride and architectural grandeur set among geometric gardens.</p>
+          </div>
+        </article>
+
+        <article class="khi-attraction-card" id="card-clifton">
+          <div class="khi-card-img-wrap">
+            <img src="images/karachi-clifton.png" alt="Clifton Beach sunset" class="khi-card-img">
+          </div>
+          <div class="khi-card-body">
+            <span class="khi-card-tag">🏖️ Beach</span>
+            <h3>Clifton Beach</h3>
+            <p>Where Karachiites escape the chaos. Camel rides, horse carriages, and the most spectacular sunsets you'll ever witness over the Arabian Sea.</p>
+          </div>
+        </article>
+
+        <article class="khi-attraction-card" id="card-portgrand">
+          <div class="khi-card-img-wrap">
+            <img src="images/karachi-portgrand.png" alt="Port Grand food street at night" class="khi-card-img">
+          </div>
+          <div class="khi-card-body">
+            <span class="khi-card-tag">🎉 Nightlife</span>
+            <h3>Port Grand</h3>
+            <p>South Asia's largest food and entertainment complex. A waterfront paradise with 50+ restaurants, live music, and a carnival atmosphere every night.</p>
+          </div>
+        </article>
+
+        <article class="khi-attraction-card" id="card-mohatta">
+          <div class="khi-card-img-wrap">
+            <img src="images/karachi-mohatta.png" alt="Mohatta Palace Museum" class="khi-card-img">
+          </div>
+          <div class="khi-card-body">
+            <span class="khi-card-tag">🎨 Culture</span>
+            <h3>Mohatta Palace Museum</h3>
+            <p>A pink sandstone masterpiece from 1927. This former royal residence now houses exquisite art collections, showcasing Pakistan's rich artistic heritage.</p>
+          </div>
+        </article>
+
+        <article class="khi-attraction-card" id="card-empress">
+          <div class="khi-card-img-wrap">
+            <img src="images/karachi-hero.png" alt="Empress Market" class="khi-card-img">
+          </div>
+          <div class="khi-card-body">
+            <span class="khi-card-tag">🛍️ Market</span>
+            <h3>Empress Market</h3>
+            <p>A Victorian-era market built in 1889. A sensory overload of spices, fabrics, antiques, and the raw energy of Karachi's trade roots.</p>
+          </div>
+        </article>
+
+        <article class="khi-attraction-card" id="card-dolmen">
+          <div class="khi-card-img-wrap">
+            <img src="images/karachi-portgrand.png" alt="Dolmen City Mall" class="khi-card-img">
+          </div>
+          <div class="khi-card-body">
+            <span class="khi-card-tag">🏙️ Modern</span>
+            <h3>Dolmen City Mall</h3>
+            <p>Pakistan's most iconic modern landmark. With twin towers and a luxury mall, it represents Karachi's ambitious leap into the future.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== FOOD CULTURE ===== -->
+    <section class="khi-food-section khi-reveal" id="khi-food">
+      <div class="khi-section-title">
+        <span class="khi-divider"></span>
+        <h2>Street Food Capital</h2>
+        <p style="color: rgba(255,255,255,0.65);">Karachi's streets serve flavors you'll dream about for years.</p>
+      </div>
+
+      <div class="khi-food-grid">
+        <div class="khi-food-card">
+          <span class="khi-food-emoji">🍢</span>
+          <h4>Bun Kebab</h4>
+          <p>The Karachi burger — spiced lentil patty, chutneys, and a toasted bun. Pure street magic at ₨50.</p>
+        </div>
+        <div class="khi-food-card">
+          <span class="khi-food-emoji">🫓</span>
+          <h4>Nihari at Burns Garden</h4>
+          <p>Slow-cooked overnight beef stew with bone marrow. Best eaten at 6 AM with fresh naan.</p>
+        </div>
+        <div class="khi-food-card">
+          <span class="khi-food-emoji">🦐</span>
+          <h4>Seafood at Keamari</h4>
+          <p>Freshly caught prawns, crabs, and lobsters grilled right at the harbor. The freshest you'll ever taste.</p>
+        </div>
+        <div class="khi-food-card">
+          <span class="khi-food-emoji">🍖</span>
+          <h4>BBQ Tonight</h4>
+          <p>Legendary sajji, tikka, and mutton chops. Every table is a feast, every bite is an event.</p>
+        </div>
+        <div class="khi-food-card">
+          <span class="khi-food-emoji">🧊</span>
+          <h4>Rabri Falooda</h4>
+          <p>Thick rabri cream with rose syrup, vermicelli, and ice cream. The ultimate Karachi dessert experience.</p>
+        </div>
+        <div class="khi-food-card">
+          <span class="khi-food-emoji">🍵</span>
+          <h4>Chai at Boat Basin</h4>
+          <p>Doodh patti chai at midnight with friends. This isn't tea — it's a Karachi lifestyle ritual.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HISTORY TIMELINE ===== -->
+    <section class="khi-reveal" id="khi-history">
+      <div class="khi-section-title">
+        <span class="khi-divider"></span>
+        <h2>Through the Ages</h2>
+        <p>A city forged by centuries of trade, conquest, and resilience.</p>
+      </div>
+
+      <div class="khi-timeline">
+        <div class="khi-timeline-item">
+          <span class="khi-timeline-year">1729</span>
+          <h4>Birth of Kolachi</h4>
+          <p>A small fishing settlement named after Mai Kolachi, a legendary fisherwoman who braved the sea and tamed the coast.</p>
+        </div>
+        <div class="khi-timeline-item">
+          <span class="khi-timeline-year">1839</span>
+          <h4>British Conquest</h4>
+          <p>The British East India Company seized Karachi, transforming it into a major military and trading port of the Raj.</p>
+        </div>
+        <div class="khi-timeline-item">
+          <span class="khi-timeline-year">1947</span>
+          <h4>Capital of a New Nation</h4>
+          <p>Pakistan was born, and Karachi became its first capital. Millions of migrants flooded in, shaping its multicultural DNA forever.</p>
+        </div>
+        <div class="khi-timeline-item">
+          <span class="khi-timeline-year">1960</span>
+          <h4>The Capital Moves</h4>
+          <p>Islamabad replaced Karachi as the capital, but the city only grew more powerful as Pakistan's undisputed economic hub.</p>
+        </div>
+        <div class="khi-timeline-item">
+          <span class="khi-timeline-year">2000s</span>
+          <h4>The Modern Surge</h4>
+          <p>Skyscrapers, stock markets, and a tech boom. Karachi enters the 21st century as a megacity of ambition and unstoppable energy.</p>
+        </div>
+        <div class="khi-timeline-item">
+          <span class="khi-timeline-year">Today</span>
+          <h4>City of Lights</h4>
+          <p>Home to 16+ million dreamers. Karachi keeps reinventing itself — louder, bolder, and more alive than ever.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== QUICK FACTS TABLE ===== -->
+    <section class="khi-reveal" id="khi-facts">
+      <div class="khi-section-title">
+        <span class="khi-divider"></span>
+        <h2>Quick Facts</h2>
+        <p>Everything you need to know before visiting.</p>
+      </div>
+
+      <table class="khi-facts-table" id="khi-facts-table">
+        <thead>
+          <tr>
+            <th>Detail</th>
+            <th>Information</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="khi-fact-icon">📍</span> Province</td>
+            <td>Sindh</td>
+          </tr>
+          <tr>
+            <td><span class="khi-fact-icon">🌡️</span> Climate</td>
+            <td>Tropical / Arid — Hot summers (35°C+), mild winters (15°C)</td>
+          </tr>
+          <tr>
+            <td><span class="khi-fact-icon">🗣️</span> Languages</td>
+            <td>Urdu, Sindhi, Pashto, Balochi, Punjabi, English</td>
+          </tr>
+          <tr>
+            <td><span class="khi-fact-icon">💰</span> Economy</td>
+            <td>Contributes ~25% of Pakistan's GDP — Financial & Industrial Hub</td>
+          </tr>
+          <tr>
+            <td><span class="khi-fact-icon">✈️</span> Airport</td>
+            <td>Jinnah International Airport (KHI)</td>
+          </tr>
+          <tr>
+            <td><span class="khi-fact-icon">🚢</span> Port</td>
+            <td>Port of Karachi — handles 95% of Pakistan's foreign trade</td>
+          </tr>
+          <tr>
+            <td><span class="khi-fact-icon">🏏</span> Sports</td>
+            <td>National Stadium — Pakistan's largest cricket ground (34,228 capacity)</td>
+          </tr>
+          <tr>
+            <td><span class="khi-fact-icon">🏫</span> Universities</td>
+            <td>University of Karachi, NED, IBA, LUMS (Karachi Campus), Aga Khan</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="khi-reveal" id="khi-gallery">
+      <div class="khi-section-title">
+        <span class="khi-divider"></span>
+        <h2>Visual Journey</h2>
+        <p>See Karachi through the lens.</p>
+      </div>
+
+      <div class="khi-gallery-grid">
+        <div class="khi-gallery-item">
+          <img src="images/karachi-hero.png" alt="Karachi skyline at golden hour">
+          <div class="khi-gallery-caption">Golden hour over the skyline</div>
+        </div>
+        <div class="khi-gallery-item">
+          <img src="images/karachi-clifton.png" alt="Sunset at Clifton Beach">
+          <div class="khi-gallery-caption">Sunset magic at Clifton Beach</div>
+        </div>
+        <div class="khi-gallery-item">
+          <img src="images/karachi-portgrand.png" alt="Port Grand lit up at night">
+          <div class="khi-gallery-caption">Port Grand — Alive after dark</div>
+        </div>
+        <div class="khi-gallery-item">
+          <img src="images/karachi-mohatta.png" alt="Mohatta Palace architecture">
+          <div class="khi-gallery-caption">Mohatta Palace — Timeless elegance</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="khi-cta khi-reveal" id="khi-cta">
+      <h2>Ready to Experience Karachi?</h2>
+      <p>
+        Pack your appetite, charge your camera, and brace yourself for the most electrifying city in South Asia.
+        Karachi doesn't just welcome you — it consumes you.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 PakVista. DevOps Fundamentals Term Project.</p>
+  </footer>
+
+  <!-- Scroll reveal animation script — scoped to .karachi-page -->
+  <script>
+    (function () {
+      const reveals = document.querySelectorAll('.karachi-page .khi-reveal');
+      if (!reveals.length) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('khi-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      reveals.forEach((el) => observer.observe(el));
+    })();
+  </script>
 </body>
 </html>
