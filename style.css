@@ -239,7 +239,7 @@ footer {
 
 /* Lahore Page Styles - scoped so the shared stylesheet stays untouched elsewhere */
 .lahore-page {
-  font-family: 'Outfit', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Outfit, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(180deg, #fffaf3 0%, #f8fafc 36%, #eef6fb 100%);
 }
 
@@ -257,7 +257,7 @@ footer {
 }
 
 .lahore-page section {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgb(255 255 255 / 92%);
   backdrop-filter: blur(8px);
 }
 
@@ -374,7 +374,7 @@ footer {
 .lahore-page .lahore-info-box {
   padding: 1.4rem;
   border-radius: var(--radius-sm);
-  background: linear-gradient(180deg, #fff7ed, #ffffff);
+  background: linear-gradient(180deg, #fff7ed, #fff);
   border: 1px solid #fed7aa;
   box-shadow: var(--shadow);
 }
