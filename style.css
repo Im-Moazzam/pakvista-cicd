@@ -8,7 +8,7 @@
   --color-accent: #0284c7;
   --radius-lg: 12px;
   --radius-sm: 8px;
-  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 5%), 0 2px 4px -2px rgb(0 0 0 / 5%);
   --transition: all 0.2s ease-in-out;
 }
 
@@ -31,9 +31,14 @@ header {
   text-align: center;
 }
 
+h1, h2, h3 {
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
 header h1 {
   font-size: 2.75rem;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem;
   letter-spacing: -0.03em;
 }
 
@@ -41,11 +46,6 @@ header p {
   font-size: 1.15rem;
   margin: 0;
   opacity: 0.9;
-}
-
-h1, h2, h3 {
-  color: var(--color-secondary);
-  font-weight: 700;
 }
 
 header h1,
@@ -65,7 +65,7 @@ main {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
 }
 
 .nav-bar ul {
@@ -79,7 +79,7 @@ main {
 }
 
 .nav-bar a {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgb(255 255 255 / 85%);
   text-decoration: none;
   font-weight: 600;
   padding: 1rem 1.25rem;
@@ -90,7 +90,7 @@ main {
 .nav-bar a:hover, 
 .nav-bar a.active {
   color: white;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(255 255 255 / 10%);
 }
 
 .nav-bar a.active {
@@ -152,7 +152,7 @@ section {
 }
 
 figure {
-  margin: 1.5rem 0 0 0;
+  margin: 1.5rem 0 0;
 }
 
 figcaption {
@@ -180,10 +180,6 @@ th, td {
   text-align: left;
 }
 
-tr:last-child td {
-  border-bottom: none;
-}
-
 th {
   background: #e2e8f0;
   color: var(--color-secondary);
@@ -196,10 +192,14 @@ td:first-child {
   width: 35%;
 }
 
+tr:last-child td {
+  border-bottom: none;
+}
+
 /* Footer Section */
 footer {
   background: var(--color-secondary);
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255 255 255 / 80%);
   text-align: center;
   padding: 1.5rem;
   margin-top: 4rem;
@@ -207,7 +207,7 @@ footer {
 }
 
 /* Media Queries for Viewports */
-@media (max-width: 700px) {
+@media (width <= 700px) {
   .nav-bar ul {
     flex-direction: column;
     align-items: stretch;
@@ -217,7 +217,7 @@ footer {
   .nav-bar a {
     text-align: center;
     padding: 0.75rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgb(255 255 255 / 5%);
   }
 
   .nav-bar a.active {
