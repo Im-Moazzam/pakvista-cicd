@@ -491,3 +491,179 @@ footer {
   background: linear-gradient(135deg, #fff7ed, #e2e8f0);
   color: #7c2d12;
 }
+
+/* =========================
+   HUNZA PAGE STYLES
+========================= */
+
+.hunza-page {
+  background: linear-gradient(
+    180deg,
+    #f0fdf4 0%,
+    #f8fafc 40%,
+    #ecfeff 100%
+  );
+}
+
+.hunza-page header {
+  background: linear-gradient(135deg, #065f46, #0f766e);
+}
+
+.hunza-page .hunza-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 2rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    135deg,
+    #164e63,
+    #0f766e,
+    #14b8a6
+  );
+  color: white;
+}
+
+.hunza-page .hunza-hero h2 {
+  margin-top: 0;
+  color: white;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+}
+
+.hunza-page .hunza-hero p {
+  max-width: 700px;
+  color: rgb(255 255 255 / 90%);
+}
+
+.hunza-page .hunza-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 15%);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hunza-page .hunza-section-title {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.hunza-page .hunza-divider {
+  display: inline-block;
+  width: 60px;
+  height: 4px;
+  border-radius: 50px;
+  background: linear-gradient(
+    90deg,
+    #0f766e,
+    #14b8a6
+  );
+}
+
+.hunza-page .hunza-intro-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 1.5rem;
+}
+
+.hunza-page .hunza-info-box {
+  padding: 1.5rem;
+  border: 1px solid #99f6e4;
+  border-radius: var(--radius-sm);
+  background: #f0fdfa;
+}
+
+.hunza-page .hunza-info-box h3 {
+  margin-top: 0;
+  color: #0f766e;
+}
+
+.hunza-page .hunza-attractions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.hunza-page .hunza-card {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: white;
+  box-shadow: var(--shadow);
+  transition: 0.25s;
+}
+
+.hunza-page .hunza-card:hover {
+  transform: translateY(-5px);
+}
+
+.hunza-page .hunza-card-head {
+  height: 190px;
+  background-position: center;
+  background-size: cover;
+}
+
+.hunza-page .hunza-altit {
+  background-image:
+    linear-gradient(
+      rgb(0 0 0 / 25%),
+      rgb(0 0 0 / 25%)
+    ),
+    url("https://upload.wikimedia.org/wikipedia/commons/5/57/Altit_Fort_Hunza.jpg");
+}
+
+.hunza-page .hunza-baltit {
+  background-image:
+    linear-gradient(
+      rgb(0 0 0 / 25%),
+      rgb(0 0 0 / 25%)
+    ),
+    url("https://upload.wikimedia.org/wikipedia/commons/4/4e/Baltit_Fort_Hunza.jpg");
+}
+
+.hunza-page .hunza-attabad {
+  background-image:
+    linear-gradient(
+      rgb(0 0 0 / 25%),
+      rgb(0 0 0 / 25%)
+    ),
+    url("https://upload.wikimedia.org/wikipedia/commons/f/f0/Attabad_Lake_Hunza.jpg");
+}
+
+.hunza-page .hunza-card-body {
+  padding: 1.4rem;
+}
+
+.hunza-page .hunza-card-tag {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  margin-bottom: 0.7rem;
+  border-radius: 999px;
+  background: #ccfbf1;
+  color: #0f766e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hunza-page .hunza-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.hunza-page .hunza-gallery-image {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  aspect-ratio: 16 / 10;
+}
+
+@media (width <= 768px) {
+  .hunza-page .hunza-intro-grid {
+    grid-template-columns: 1fr;
+  }
+}
